@@ -52,7 +52,8 @@ helpers:
 #
 spec_files:
   # - "**/*[Ss]pec.js"
-  - "PlayerSpec.js"
+  # - "PlayerSpec.js"
+  - "UserSpec.js"  
 
 
 # src_dir
