@@ -13,7 +13,7 @@ describe("User", function() {
   
   it("should be able to request Ajax Post to Database", function(){
 	spyOn(jQuery, 'ajax');
-	user.requestToDatabase();
+	// user.requestToDatabase();
 	// expect(jQuery.ajax).toHaveBeenCalled();
 	expect(jQuery.ajax).toHaveBeenCalledWith({
 		method: "POST",
