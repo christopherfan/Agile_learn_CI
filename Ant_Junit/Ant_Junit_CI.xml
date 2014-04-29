@@ -58,6 +58,7 @@
    <target name="test" depends="jar" >
       <junit>
          <classpath refid="classpath.test" />
+		 <classpath  location = "${lib.path}/junit.jar"/>
          <formatter type="brief" usefile="false" />
          <!-- <test name="TestMessageUtil2" /> -->
         <batchtest >
