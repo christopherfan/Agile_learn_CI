@@ -1,0 +1,64 @@
+<project name="JunitTest" default="test" basedir=".">
+   <property name="build.dir" location="build" />
+   <property name="build.classes" location="${build.dir}/classes" />   
+   <property name="build.jar" location="build/jar" />   
+   <property name="srcdir" location="src" />
+   <property name="lib.path" location="lib" />   
+   <property name="test.dir" location="src/test" />   
+   <property name="full-compile" value="false" />
+   <property name="testjar.name"  value ="HelloWorld.jar" />
+   <property name="mainclass.name"  value ="edu.berkeley.ischool.aep.ArithmeticQuantity" />
+   <path id="classpath.base"/>
+   
+   
+   <path id="classpath.compile">
+      <pathelement location = "${lib.path}"/>
+      <pathelement location="${srcdir}" />      
+   </path>     
+   
+   <path id="classpath.test">
+      <pathelement location="/lib/junit.jar" />      
+      <pathelement location="build/jar/HelloWorld.jar" />      
+      <path refid="classpath.base" />
+   </path>
+   
+   <target name="clean" >
+      <delete verbose="${full-compile}">
+         <fileset dir="${build.dir}" includes="**/*.class" />
+      </delete>
+   </target>
+   
+   <target name="compile" depends="clean">
+	   <mkdir dir="${build.classes}" />
+		  <javac srcdir="${srcdir}" destdir="${build.classes}" 
+			 verbose="${full-compile}">
+			 <classpath refid="classpath.compile"/>
+		  </javac>
+   </target>
+   
+    <target name="jar" depends="compile">
+        <mkdir dir="${build.jar}"/>
+        <jar destfile="${build.jar}/${testjar.name}" basedir="${build.classes}">
+            <manifest>
+                <attribute name="Main-Class" value="${mainclass.name}"/>
+            </manifest>
+        </jar>
+    </target>  
+    
+    <target name="run" depends="jar">
+        <java jar="${build.jar}/${testjar.name}" fork="true"/>
+    </target> 
+    
+   <target name="test" depends="jar" >
+      <junit>
+         <classpath refid="classpath.test" />
+         <formatter type="brief" usefile="false" />
+         <!-- <test name="TestMessageUtil2" /> -->
+        <batchtest >
+            <fileset dir="${test.dir}">
+            <include name="**/*Test*.java" />
+            </fileset>
+      </batchtest>         
+      </junit>
+   </target>
+</project>
