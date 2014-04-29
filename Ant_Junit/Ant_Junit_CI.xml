@@ -13,7 +13,10 @@
    
    <path id="classpath.compile">
       <pathelement location = "${lib.path}/junit.jar"/>
-	  <path id="org.junit" location= "${lib.path}/junit.jar"/>
+        <path id="org" />
+			<fileset dir="${lib.path}/org">
+				<include name="**/junit.jar" />
+			</fileset>	  
       <pathelement location="${srcdir}" />      
    </path>     
    
