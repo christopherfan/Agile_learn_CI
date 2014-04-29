@@ -23,7 +23,8 @@
    </path>
    
    <target name="clean" >
-      <delete verbose="${full-compile}">
+      <mkdir dir="${build.dir}" />
+	  <delete verbose="${full-compile}">
          <fileset dir="${build.dir}" includes="**/*.class" />
       </delete>
    </target>
