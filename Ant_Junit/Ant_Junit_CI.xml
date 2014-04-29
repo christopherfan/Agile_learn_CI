@@ -13,7 +13,7 @@
    
    <path id="classpath.compile">
       <!-- <pathelement location = "${lib.path}/junit.jar"/> -->
-	  <pathelement location = "${lib.path}/org/junit-4.10.jar"/>
+	  <pathelement location = "${lib.path}/junit-4.10.jar"/>
 <!--         <path id="org" />
 			<fileset dir="${lib.path}/org">
 				<include name="**/*.jar" />
