@@ -9,7 +9,7 @@ public class QuantityTest {
 
     @Test
     public void threeFeetShouldEqualOneYard() {
-		System.out.println(">>>Verifying Quantity Test is running Test 1");
+		System.out.println(">!!!Verifying Quantity Test is running Test 1");
         assertEquals(new ArithmeticQuantity(1, YARDS), new ArithmeticQuantity(3, FEET));
     }
 
